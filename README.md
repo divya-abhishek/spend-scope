@@ -1,4 +1,4 @@
-# SpendScope v2 — Universal CSV Spend Analyzer
+# SpendScope — Universal CSV Spend Analyzer
 
 SpendScope is a local-first personal finance dashboard for importing transaction CSV files from different finance apps, banks, cards, wallets, or manually maintained exports and turning them into one normalized ledger for trend analysis.
 
