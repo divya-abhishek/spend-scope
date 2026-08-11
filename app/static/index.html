@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>SpendScope — Universal CSV Spend Analyzer</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="#overview" aria-label="SpendScope home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>SpendScope</strong><small>Universal spend intelligence</small></span>
+      </a>
+      <nav class="top-nav" aria-label="Dashboard sections">
+        <button class="nav-link active" data-scroll="overview">Overview</button>
+        <button class="nav-link" data-scroll="trends">Trends</button>
+        <button class="nav-link" data-scroll="signals">Signals</button>
+        <button class="nav-link" data-scroll="transactions">Transactions</button>
+      </nav>
+      <div class="header-actions">
+        <button id="manageBtn" class="icon-text-btn secondary-btn" title="Imported files"><span>Data</span><b id="fileCountBadge">0</b></button>
+        <button id="uploadBtn" class="primary-btn"><span class="button-icon">＋</span> Import CSV</button>
+        <input id="fileInput" type="file" accept=".csv,.txt,text/csv,text/plain" multiple hidden />
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-intro" id="overview">
+      <div>
+        <div class="eyebrow">SPEND ANALYTICS</div>
+        <h1>Your money, decoded.</h1>
+        <p id="periodText">Loading imported transactions…</p>
+      </div>
+      <div class="intro-controls">
+        <label class="select-control">
+          <span>Period</span>
+          <select id="monthSelect" aria-label="Select analysis period"></select>
+        </label>
+        <button id="filterBtn" class="filter-btn"><span>⌁</span> Filters <b id="filterCount">0</b></button>
+      </div>
+    </section>
+
+    <div id="activeFilters" class="active-filters" aria-live="polite"></div>
+
+    <section class="hero-card" aria-label="Spend summary">
+      <div class="hero-primary">
+        <div class="metric-label">Total spend</div>
+        <div class="hero-value" id="spendKpi">—</div>
+        <div class="hero-meta">
+          <span id="spendSub">Excludes transfers</span>
+          <span id="trendPill" class="trend-pill neutral">Waiting for data</span>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stats">
+        <article class="mini-stat"><span>Daily average</span><strong id="avgDayKpi">—</strong><small id="avgDaySub">Across selected period</small></article>
+        <article class="mini-stat"><span>Net cash flow</span><strong id="netKpi">—</strong><small id="incomeSub">Income minus expenses</small></article>
+        <article class="mini-stat"><span>Median expense</span><strong id="medianKpi">—</strong><small>Typical transaction size</small></article>
+        <article class="mini-stat"><span>Top-5 concentration</span><strong id="concentrationKpi">—</strong><small>Share of biggest expenses</small></article>
+      </div>
+    </section>
+
+    <section class="dashboard-grid primary-grid">
+      <article class="surface chart-surface wide">
+        <div class="surface-head">
+          <div><span class="kicker">SPEND VELOCITY</span><h2>Spending over time</h2><p>Daily expenses with a smoothed 7-day baseline.</p></div>
+          <div class="chart-legend"><span><i class="legend-dot spend-dot"></i>Daily spend</span><span><i class="legend-line avg-line"></i>7-day avg</span></div>
+        </div>
+        <div class="chart-wrap chart-large"><canvas id="dailyChart"></canvas></div>
+      </article>
+
+      <article class="surface category-surface">
+        <div class="surface-head compact">
+          <div><span class="kicker">COMPOSITION</span><h2>Top categories</h2><p>Discovered from your CSV, never hardcoded.</p></div>
+        </div>
+        <div id="categoryRanks" class="category-ranks"></div>
+      </article>
+    </section>
+
+    <section id="trends" class="section-block">
+      <div class="section-heading">
+        <div><span class="section-number">02</span><div><h2>Trend intelligence</h2><p>How behavior changes across days, weeks, and imported months.</p></div></div>
+      </div>
+      <div class="dashboard-grid trends-grid">
+        <article class="surface chart-surface span-2">
+          <div class="surface-head"><div><span class="kicker">MONTH OVER MONTH</span><h2>Spend trajectory</h2></div><span id="momBadge" class="soft-pill">Add more months</span></div>
+          <div class="chart-wrap chart-medium"><canvas id="monthlyChart"></canvas></div>
+        </article>
+        <article class="surface chart-surface">
+          <div class="surface-head compact"><div><span class="kicker">WEEK RHYTHM</span><h2>Weekday pattern</h2></div></div>
+          <div class="chart-wrap chart-medium"><canvas id="weekdayChart"></canvas></div>
+        </article>
+        <article class="surface chart-surface">
+          <div class="surface-head compact"><div><span class="kicker">DAY PART</span><h2>When you spend</h2></div></div>
+          <div class="chart-wrap chart-medium"><canvas id="timeChart"></canvas></div>
+        </article>
+        <article class="surface chart-surface span-2">
+          <div class="surface-head"><div><span class="kicker">CATEGORY PRESSURE</span><h2>Where the money goes</h2></div></div>
+          <div class="chart-wrap chart-medium"><canvas id="categoryBar"></canvas></div>
+        </article>
+        <article class="surface chart-surface span-3">
+          <div class="surface-head"><div><span class="kicker">CATEGORY DRIFT</span><h2>Category movement by month</h2><p>Automatically adapts to whichever category labels your files contain.</p></div></div>
+          <div class="chart-wrap chart-medium"><canvas id="categoryTrendChart"></canvas></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="signals" class="section-block">
+      <div class="section-heading">
+        <div><span class="section-number">03</span><div><h2>Patterns & signals</h2><p>Statistical clues, recurring behavior, and unusual transactions.</p></div></div>
+      </div>
+      <div class="signals-grid">
+        <article class="surface insights-surface">
+          <div class="surface-head compact"><div><span class="kicker">AUTOMATED READOUT</span><h2>What stands out</h2></div></div>
+          <div id="insightList" class="insight-list"></div>
+        </article>
+        <article class="surface">
+          <div class="surface-head compact"><div><span class="kicker">REPEAT SIGNALS</span><h2>Recurring patterns</h2></div></div>
+          <div id="recurringList" class="rank-list"></div>
+        </article>
+        <article class="surface">
+          <div class="surface-head compact"><div><span class="kicker">OUTLIER DETECTION</span><h2>Unusually large expenses</h2></div></div>
+          <div id="anomalyList" class="anomaly-list"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="transactions" class="section-block">
+      <div class="section-heading transactions-heading">
+        <div><span class="section-number">04</span><div><h2>Transaction explorer</h2><p>The normalized ledger generated from every imported CSV.</p></div></div>
+        <div class="transaction-tools">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search merchant, notes, category, account or file…" /></label>
+          <button id="tableFilterBtn" class="secondary-btn">Filters</button>
+        </div>
+      </div>
+      <article class="surface table-surface">
+        <div class="table-summary"><span id="txCount">—</span><span id="tableHint">Latest matching rows</span></div>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Date</th><th>Type</th><th>Category</th><th>Description</th><th>Account</th><th>Source</th><th class="right">Amount</th></tr></thead>
+            <tbody id="txBody"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <span>SpendScope v2</span>
+      <span>Local FastAPI + SQLite</span>
+      <span>CSV columns, accounts and categories are inferred dynamically</span>
+    </footer>
+  </main>
+
+  <div id="uploadOverlay" class="overlay hidden" aria-hidden="true">
+    <div class="modal upload-modal" role="dialog" aria-modal="true" aria-labelledby="uploadTitle">
+      <button id="closeUploadBtn" class="modal-close" aria-label="Close">×</button>
+      <div class="modal-icon">⇧</div>
+      <div class="eyebrow">SMART IMPORT</div>
+      <h2 id="uploadTitle">Drop any transaction CSV</h2>
+      <p>SpendScope detects dates, signed amounts or debit/credit columns, descriptions, categories, accounts, transaction direction and currency. If a file is ambiguous, you’ll map it once before import.</p>
+      <div id="dropZone" class="drop-zone">
+        <strong>Drop CSV files here</strong>
+        <span>or choose one or several files</span>
+        <button id="chooseFileBtn" class="primary-btn" type="button">Choose files</button>
+      </div>
+      <label class="import-currency"><span>Fallback currency <small>used only when the CSV has no currency</small></span><input id="importCurrency" maxlength="3" value="INR" aria-label="Fallback currency code"></label>
+      <div id="uploadStatus" class="upload-status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div id="mappingOverlay" class="overlay hidden" aria-hidden="true">
+    <div class="modal mapping-modal" role="dialog" aria-modal="true" aria-labelledby="mappingTitle">
+      <div class="mapping-head">
+        <div><div class="eyebrow">COLUMN MAPPING</div><h2 id="mappingTitle">Confirm this CSV structure</h2><p id="mappingSubtitle">We could not confidently infer every required field.</p></div>
+        <button id="cancelMappingBtn" class="modal-close static-close" aria-label="Cancel mapping">×</button>
+      </div>
+      <div id="mappingConfidence" class="mapping-confidence"></div>
+      <div class="mapping-grid">
+        <label><span>Date / time <b>required</b></span><select id="mapDate"></select></label>
+        <label><span>Amount</span><select id="mapAmount"></select></label>
+        <label><span>Debit / money out</span><select id="mapDebit"></select></label>
+        <label><span>Credit / money in</span><select id="mapCredit"></select></label>
+        <label><span>Transaction type</span><select id="mapType"></select></label>
+        <label><span>Description / merchant</span><select id="mapDescription"></select></label>
+        <label><span>Category</span><select id="mapCategory"></select></label>
+        <label><span>Account / wallet</span><select id="mapAccount"></select></label>
+        <label><span>Currency column</span><select id="mapCurrency"></select></label>
+        <label><span>Fallback currency</span><input id="fallbackCurrency" maxlength="3" value="INR" /></label>
+      </div>
+      <p class="mapping-help">Use either <strong>Amount</strong>, or <strong>Debit / Credit</strong>. Category and account are optional; missing values remain generic instead of blocking the import.</p>
+      <div class="preview-wrap"><table id="previewTable"></table></div>
+      <div class="modal-actions"><button id="skipMappingBtn" class="ghost-btn" type="button">Skip file</button><button id="confirmMappingBtn" class="primary-btn" type="button">Import with mapping</button></div>
+    </div>
+  </div>
+
+  <div id="filterOverlay" class="sheet-overlay hidden" aria-hidden="true">
+    <aside class="filter-sheet" aria-label="Dashboard filters">
+      <div class="sheet-head"><div><div class="eyebrow">DYNAMIC FILTERS</div><h2>Filter this view</h2><p>Options come directly from imported transactions.</p></div><button id="closeFilterBtn" class="modal-close static-close" aria-label="Close filters">×</button></div>
+      <div id="filterGroups" class="filter-groups"></div>
+      <div class="sheet-actions"><button id="clearFiltersBtn" class="ghost-btn">Clear all</button><button id="applyFiltersBtn" class="primary-btn">Apply filters</button></div>
+    </aside>
+  </div>
+
+  <div id="manageOverlay" class="overlay hidden" aria-hidden="true">
+    <div class="modal manage-modal" role="dialog" aria-modal="true" aria-labelledby="manageTitle">
+      <div class="mapping-head"><div><div class="eyebrow">DATA LIBRARY</div><h2 id="manageTitle">Imported files</h2><p>See how each file was interpreted, or remove it completely.</p></div><button id="closeManageBtn" class="modal-close static-close" aria-label="Close">×</button></div>
+      <div id="importList" class="import-list"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

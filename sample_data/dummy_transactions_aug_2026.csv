@@ -1,0 +1,78 @@
+﻿TIME,TYPE,AMOUNT,CATEGORY,ACCOUNT,NOTES 
+"Aug 01, 2026 9:18 AM",(+) Income,62540.00,Client Income,Main Bank,monthly consulting payment
+"Aug 01, 2026 10:55 AM",(-) Expense,408.75,Fitness,Main Bank,protein snack and drink
+"Aug 01, 2026 12:45 PM",(-) Expense,503.00,Personal Care,UPI Wallet,toiletries refill
+"Aug 01, 2026 4:33 PM",(-) Expense,1518.00,Education,UPI Wallet,language class fee
+"Aug 01, 2026 6:45 PM",(-) Expense,18950.00,Housing,Main Bank,monthly apartment rent
+"Aug 02, 2026 10:12 AM",(*) Transfer,6500.00,Internal Transfer,Main Bank->Goal Vault,monthly savings allocation
+"Aug 02, 2026 11:11 AM",(-) Expense,736.00,Fitness,UPI Wallet,sports court booking
+"Aug 02, 2026 6:13 PM",(-) Expense,126.00,Transit,Cash,bus day pass
+"Aug 02, 2026 6:21 PM",(-) Expense,3228.00,Travel,Rewards Credit Card,hotel booking deposit
+"Aug 03, 2026 4:05 PM",(-) Expense,290.50,Groceries,Main Bank,snacks and beverages
+"Aug 03, 2026 7:58 PM",(-) Expense,409.90,Personal Care,UPI Wallet,toiletries refill
+"Aug 04, 2026 10:52 AM",(-) Expense,426.00,Groceries,Rewards Credit Card,weekly vegetables and fruit
+"Aug 04, 2026 5:09 PM",(-) Expense,549.00,Fitness,UPI Wallet,yoga class
+"Aug 04, 2026 7:55 PM",(-) Expense,701.00,Household,UPI Wallet,cleaning supplies
+"Aug 04, 2026 8:05 PM",(-) Expense,1199.00,Utilities,Main Bank,internet service charge
+"Aug 05, 2026 5:31 PM",(-) Expense,307.00,Groceries,Rewards Credit Card,snacks and beverages
+"Aug 05, 2026 8:37 PM",(-) Expense,233.75,Dining Out,Rewards Credit Card,juice and sandwich
+"Aug 06, 2026 11:17 AM",(-) Expense,380.00,Subscriptions,Rewards Credit Card,news membership
+"Aug 07, 2026 8:50 AM",(-) Expense,1649.00,Fitness,Main Bank,gym monthly fee
+"Aug 07, 2026 8:55 AM",(-) Expense,232.00,Dining Out,Cash,evening coffee and snack
+"Aug 07, 2026 9:02 AM",(-) Expense,334.25,Work Expense,Business Wallet,printing and stationery
+"Aug 08, 2026 1:28 PM",(-) Expense,312.00,Dining Out,UPI Wallet,team lunch at local bistro
+"Aug 08, 2026 2:05 PM",(-) Expense,532.00,Travel,Rewards Credit Card,museum entry during trip
+"Aug 09, 2026 10:01 AM",(-) Expense,464.00,Work Expense,Business Wallet,client meeting refreshments
+"Aug 09, 2026 9:10 PM",(-) Expense,399.00,Subscriptions,Rewards Credit Card,productivity app subscription
+"Aug 09, 2026 9:59 PM",(-) Expense,153.00,Subscriptions,Rewards Credit Card,music plan renewal
+"Aug 10, 2026 11:31 AM",(-) Expense,233.40,Fitness,UPI Wallet,protein snack and drink
+"Aug 10, 2026 7:58 PM",(-) Expense,476.00,Work Expense,Business Wallet,software add-on
+"Aug 10, 2026 8:28 PM",(-) Expense,114.00,Transit,Cash,local train ticket
+"Aug 11, 2026 12:36 PM",(-) Expense,553.00,Work Expense,Business Wallet,client meeting refreshments
+"Aug 11, 2026 9:55 PM",(-) Expense,520.00,Gifts,Rewards Credit Card,small thank-you gift
+"Aug 12, 2026 12:31 PM",(-) Expense,810.50,Work Expense,Business Wallet,software add-on
+"Aug 12, 2026 1:40 PM",(+) Income,3650.00,Reimbursement,Main Bank,work travel reimbursement
+"Aug 12, 2026 4:54 PM",(-) Expense,1055.00,Personal Care,Cash,salon visit
+"Aug 12, 2026 8:13 PM",(-) Expense,293.00,Travel,Rewards Credit Card,travel snacks and water
+"Aug 13, 2026 7:05 PM",(-) Expense,824.00,Personal Care,UPI Wallet,haircut and grooming
+"Aug 14, 2026 4:24 PM",(-) Expense,500.00,Personal Care,UPI Wallet,haircut and grooming
+"Aug 14, 2026 6:46 PM",(-) Expense,559.00,Dining Out,Cash,team lunch at local bistro
+"Aug 15, 2026 10:30 AM",(-) Expense,243.00,Groceries,Main Bank,milk bread and pantry refill
+"Aug 15, 2026 1:44 PM",(-) Expense,138.00,Dining Out,Rewards Credit Card,breakfast at corner cafe
+"Aug 15, 2026 7:21 PM",(-) Expense,284.00,Dining Out,Rewards Credit Card,breakfast at corner cafe
+"Aug 15, 2026 7:25 PM",(-) Expense,1375.00,Insurance,Main Bank,health policy installment
+"Aug 16, 2026 11:05 AM",(*) Transfer,2800.00,Internal Transfer,Main Bank->Travel Fund,set aside for September trip
+"Aug 16, 2026 11:29 AM",(-) Expense,177.00,Health,Rewards Credit Card,pharmacy essentials
+"Aug 16, 2026 5:47 PM",(-) Expense,116.00,Transit,Transit Card,bus day pass
+"Aug 16, 2026 8:52 PM",(-) Expense,129.50,Transit,UPI Wallet,bus day pass
+"Aug 17, 2026 7:07 PM",(-) Expense,1026.90,Groceries,Rewards Credit Card,supermarket essentials
+"Aug 18, 2026 12:11 PM",(-) Expense,98.00,Transit,Transit Card,parking fee
+"Aug 18, 2026 9:50 PM",(-) Expense,266.00,Subscriptions,Main Bank,news membership
+"Aug 19, 2026 8:15 AM",(-) Expense,91.00,Transit,Transit Card,local train ticket
+"Aug 20, 2026 9:21 AM",(-) Expense,445.00,Work Expense,Rewards Credit Card,software add-on
+"Aug 20, 2026 11:18 AM",(-) Expense,421.00,Health,Rewards Credit Card,vitamin purchase
+"Aug 20, 2026 5:55 PM",(+) Income,8900.00,Project Income,Main Bank,one-off design project payment
+"Aug 20, 2026 7:30 PM",(-) Expense,490.00,Transit,UPI Wallet,metro recharge
+"Aug 21, 2026 9:59 AM",(-) Expense,155.00,Transit,UPI Wallet,bus day pass
+"Aug 21, 2026 12:43 PM",(-) Expense,917.00,Groceries,UPI Wallet,supermarket essentials
+"Aug 21, 2026 7:10 PM",(-) Expense,806.75,Work Expense,Business Wallet,coworking day pass
+"Aug 22, 2026 10:49 AM",(-) Expense,211.00,Dining Out,UPI Wallet,breakfast at corner cafe
+"Aug 23, 2026 12:19 PM",(-) Expense,412.00,Fitness,UPI Wallet,yoga class
+"Aug 23, 2026 12:52 PM",(-) Expense,721.00,Groceries,Main Bank,kitchen staples
+"Aug 24, 2026 8:40 AM",(-) Expense,108.00,Transit,UPI Wallet,local train ticket
+"Aug 24, 2026 11:56 AM",(-) Expense,1273.00,Groceries,UPI Wallet,supermarket essentials
+"Aug 24, 2026 12:10 PM",(-) Expense,975.00,Education,Rewards Credit Card,online course module
+"Aug 25, 2026 5:35 PM",(-) Expense,296.00,Fitness,Main Bank,protein snack and drink
+"Aug 26, 2026 9:58 AM",(-) Expense,49.60,Transit,UPI Wallet,local train ticket
+"Aug 26, 2026 10:14 AM",(-) Expense,108.90,Transit,Cash,local train ticket
+"Aug 27, 2026 1:28 PM",(-) Expense,104.00,Transit,Cash,local train ticket
+"Aug 27, 2026 6:32 PM",(-) Expense,410.00,Social,Cash,friend meetup at cafe
+"Aug 28, 2026 12:38 PM",(-) Expense,302.00,Personal Care,UPI Wallet,toiletries refill
+"Aug 28, 2026 6:02 PM",(-) Expense,294.00,Subscriptions,Rewards Credit Card,news membership
+"Aug 28, 2026 6:30 PM",(*) Transfer,2200.00,Internal Transfer,Main Bank->Emergency Pot,emergency fund top-up
+"Aug 29, 2026 12:18 PM",(-) Expense,396.00,Fitness,Main Bank,yoga class
+"Aug 29, 2026 1:01 PM",(-) Expense,156.00,Transit,UPI Wallet,parking fee
+"Aug 30, 2026 9:19 AM",(-) Expense,688.00,Dining Out,Cash,weekend dinner
+"Aug 31, 2026 12:11 PM",(-) Expense,301.00,Work Expense,Rewards Credit Card,software add-on
+"Aug 31, 2026 7:39 PM",(-) Expense,740.00,Household,Rewards Credit Card,cleaning supplies
+"Aug 31, 2026 8:20 PM",(-) Expense,247.75,Dining Out,Cash,juice and sandwich
