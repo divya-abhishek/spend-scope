@@ -1,6 +1,4 @@
 # SpendScope — Universal CSV Spend Analyzer
-<img src="https://i.postimg.cc/R0kn7fwg/HTT.png" alt="website preview">
-
 SpendScope is a local-first personal finance dashboard for importing transaction CSV files from different finance apps, banks, cards, wallets, or manually maintained exports and turning them into one normalized ledger for trend analysis.
 
 The v2 importer **does not require Money Pro's fixed schema**. Accounts, categories, transaction types, column names, and currencies are discovered from the files you import.
